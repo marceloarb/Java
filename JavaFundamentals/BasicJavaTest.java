@@ -4,29 +4,29 @@ public class BasicJavaTest {
         // id.printnumbers();
         // id.printOddNumbers();
         // id.sum();
-        int[] array={2,3,5,2,1};
-        id.iterateArray(array);
-        int[] testArr = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
-        id.findMax(testArr);
+        // int[] array={2,3,5,2,1};
+        // id.iterateArray(array);
+        // int[] array = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
+        // id.findMax(array);
 
-        int[] testArr = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
-        id.getAverage(testArr);
+        // int[] array = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
+        // id.getAverage(array);
 
-        id.arrayOddNumbers();
+        // id.arrayOddNumbers();
 
-        int[] testArr = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
-        id.greaterThanY(testArr, 3);
+        // int[] array = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
+        // id.greaterThanY(array, 3);
 
-        int[] testArr = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
-        id.squareTheValues(testArr);
+        // int[] array = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
+        // id.squareTheValues(array);
 
-        int[] testArr = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
-        id.eliminateNegativeNumbers(testArr);
+        // int[] array = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
+        // id.eliminateNegativeNumbers(array);
 
-        int[] testArr = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
-        id.maxMinAvg(testArr);
+        // int[] array = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
+        // id.maxMinAvg(array);
 
-        int[] testArr = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
-        id.shiftingValues(testArr);
+        int[] array = {-9,-7,-5,-3,-1,0,1,3,5,7,9};
+        id.shiftingValues(array);
     }
 }
