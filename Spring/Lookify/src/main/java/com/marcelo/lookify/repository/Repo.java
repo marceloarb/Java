@@ -13,6 +13,5 @@ public interface Repo extends CrudRepository<LookifyModel, Long>{
 	
 	List<LookifyModel> findByArtist(String artist);
 	
-	List<LookifyModel> findTop10ByOrderByRatingDesc();
-
+	List<LookifyModel> findTop10ByOrderByRateDesc();
 }

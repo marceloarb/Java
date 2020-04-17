@@ -39,7 +39,7 @@ public class LookifyService {
 		return repo.findByArtist(artist);
 	}
 	public List<LookifyModel> getTopTen(){
-		return repo.findTop10ByOrderByRatingDesc();
+		return repo.findTop10ByOrderByRateDesc();
 	}
 	
 	

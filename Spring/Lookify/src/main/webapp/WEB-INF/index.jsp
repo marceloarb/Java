@@ -19,7 +19,7 @@
         <a class="nav-link" href="/newsong">Add New <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Top Songs</a>
+        <a class="nav-link" href="top10">Top Songs</a>
       </li>
       
     </ul>
