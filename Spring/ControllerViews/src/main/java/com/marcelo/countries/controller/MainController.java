@@ -14,12 +14,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.marcelo.countries.models.User;
 import com.marcelo.countries.service.Serv;
+import com.marcelo.countries.validator.UserValidator;
 
 @Controller
 public class MainController {
+	private final UserValidator validator;
+	
+	public MainController(UserValidator validator) {
+		this.validator = validator;
+	}
 	
 	@Autowired
 	private Serv serv;
+	
 	
 	
 	@RequestMapping("/registration")
@@ -33,6 +40,7 @@ public class MainController {
     
     @RequestMapping(value="/registration", method=RequestMethod.POST)
     public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {
+    	validator.validate(user, result);
     	if(result.hasErrors()) {
     		return "registration.jsp";
     	}
