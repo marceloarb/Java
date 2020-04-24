@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.marcelo.EventsBeltReviewer.models.Event;
+import com.marcelo.EventsBeltReviewer.models.Message;
 import com.marcelo.EventsBeltReviewer.models.User;
 import com.marcelo.EventsBeltReviewer.repository.EventRepo;
+import com.marcelo.EventsBeltReviewer.repository.MessageRepo;
 import com.marcelo.EventsBeltReviewer.repository.UserRepo;
 
 @Service
@@ -19,6 +21,8 @@ public class Serv {
 	private UserRepo userRepo;
 	@Autowired
 	private EventRepo eventRepo;
+	@Autowired
+	private MessageRepo messageRepo;
 	
 	
 	
@@ -27,7 +31,12 @@ public class Serv {
 		user.setPassword(hashed);
 		return userRepo.save(user);
 	}
-	
+	public User update(User user) {
+		return userRepo.save(user);
+	}
+	public Message newMessage(Message message) {
+		return messageRepo.save(message);
+	}
 	public User findByEmail(String email) {
         return userRepo.findByEmail(email);
     }
@@ -43,13 +52,11 @@ public class Serv {
 	
 	
 	public User findUserById(Long id) {
-    	Optional<User> u = userRepo.findById(id);
-    	
-    	if(u.isPresent()) {
-            return u.get();
-    	} else {
-    	    return null;
-    	}
+		User user = userRepo.findById(id).orElse(null);
+		if(user == null) {
+			return null;
+		}
+		return user;
     }
 	
 	public boolean authenticateUser(String email, String password) {
@@ -70,5 +77,32 @@ public class Serv {
 	public void delete(Long id) {
 		eventRepo.deleteById(id);
 	}
+
+	public Event findEventById(Long id) {
+    	Optional<Event> e = eventRepo.findById(id);
+    	
+    	if(e.isPresent()) {
+            return e.get();
+    	} else {
+    	    return null;
+    	}
+	}
 	
-}
+	
+	public Iterable<User> userForEvent(Event event){
+		return userRepo.findByEventsNotContains(event);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}

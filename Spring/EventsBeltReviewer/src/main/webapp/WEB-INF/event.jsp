@@ -12,7 +12,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action="/logout" method="get">
+	<button class="btn btn-danger">logout</button>
+</form>
 	<h1>Here are some of the events in your state:</h1>
 	<table class="table table-dark" >
 	    <thead>
@@ -30,14 +32,21 @@
 	        <tr>
 	            <td><c:out value="${outstate.name }"/> </td>
 	            <td><fmt:formatDate pattern ="MMMM dd, yyyy" value ="${outstate.date}"/></td>
-	            <td><c:out value="${outstate.location}"/> </td>
-	            <td><c:out value="${outstate.user.firstname}"/></td>
+	            <td><c:out value="${outstate.state}"/> </td>
+	            <td><c:out value="${outstate.user.email}"/></td>
 	            <c:choose>
-	            <c:when test="${ userInSession == state.user }">
-            	<td><a href="/delete/${ outstate.id }/event" >Delete</a>  |  <a href="">Edit</a></td>
+	            <c:when test="${ userInSession == outstate.user }">
+            	<td><a href="/delete/${ outstate.id }/event" >Delete</a>  |  <a href="/event/${outstate.id }/edit">Edit</a></td>
             	</c:when>
             	<c:otherwise>
-            	<td>  </td>
+					<c:choose>
+	            	<c:when test="${ outstate.user_event.contains(userInSession) }">
+            		<td><a href="/delete/${outstate.id }"> Cancel</a> </td>
+					</c:when>
+					<c:otherwise>
+					<td><a href="/event/${outstate.id }"> Join</a> </td>
+					</c:otherwise>
+					</c:choose>
             	</c:otherwise>
             	</c:choose>
 	           
@@ -64,14 +73,21 @@
 	        <tr>
 	            <td><c:out value="${state.name }"/> </td>
 	            <td><fmt:formatDate pattern ="MMMM dd, yyyy" value ="${state.date}"/></td>
-	            <td><c:out value="${state.location}"/> </td>
-	            <td><c:out value="${state.user.firstname}"/></td>
+	            <td><c:out value="${state.state}"/> </td>
+	            <td><c:out value="${state.user.email}"/></td>
 	            <c:choose>
 	            <c:when test="${ userInSession == state.user }">
-            	<td><a href="/delete/${ state.id }/event" >Delete</a>  |  <a href="">Edit</a></td>
+            	<td><a href="/delete/${ state.id }/event" >Delete</a>  |  <a href="/event/${state.id }/edit">Edit</a></td>
             	</c:when>
             	<c:otherwise>
-            	<td>  </td>
+            	 	<c:choose>
+	            	<c:when test="${ state.user_event.contains(userInSession) }">
+            		<td><a href="/delete/${state.id }"> Cancel</a> </td>
+					</c:when>
+					<c:otherwise>
+					<td><a href="/event/${state.id }"> Join</a> </td>
+					</c:otherwise>
+					</c:choose>
             	</c:otherwise>
             	</c:choose>
 	        </tr>

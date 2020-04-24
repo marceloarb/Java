@@ -88,9 +88,18 @@ public class Event {
 
 
 
+	
+
+
+
 	public Long getId() {
 		return id;
 	}
+
+
+
+
+
 
 
 
@@ -100,9 +109,19 @@ public class Event {
 
 
 
+
+
+
+
+
 	public String getName() {
 		return name;
 	}
+
+
+
+
+
 
 
 
@@ -112,9 +131,19 @@ public class Event {
 
 
 
+
+
+
+
+
 	public Date getDate() {
 		return date;
 	}
+
+
+
+
+
 
 
 
@@ -124,9 +153,19 @@ public class Event {
 
 
 
+
+
+
+
+
 	public String getState() {
 		return state;
 	}
+
+
+
+
+
 
 
 
@@ -136,9 +175,19 @@ public class Event {
 
 
 
+
+
+
+
+
 	public String getLocation() {
 		return location;
 	}
+
+
+
+
+
 
 
 
@@ -148,9 +197,19 @@ public class Event {
 
 
 
+
+
+
+
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}
+
+
+
+
+
 
 
 
@@ -160,9 +219,19 @@ public class Event {
 
 
 
+
+
+
+
+
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
+
+
+
+
+
 
 
 
@@ -172,15 +241,52 @@ public class Event {
 
 
 
+
+
+
+
+
 	public User getUser() {
 		return user;
 	}
 
 
 
+
+
+
+
+
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+
+
+
+
+
+
+
+	public List<User> getUser_event() {
+		return user_event;
+	}
+
+
+
+
+
+
+
+
+	public void setUser_event(List<User> user_event) {
+		this.user_event = user_event;
+	}
+
+
+
+
+
 
 
 

@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -53,6 +54,11 @@ public class User {
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Event> events;
     
+    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    private List<Message> messages;
+    
+
+    
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
 		name = "user_event",
@@ -68,6 +74,17 @@ public class User {
     
     
     
+	
+
+	
+
+
+
+	
+
+
+
+
 	public User(@NotNull(message = "Field cannot be blank") String firstname,
 			@NotNull(message = "Field cannot be blank") String lastname,
 			@Email(message = "Email must be valid") String email,
@@ -75,6 +92,7 @@ public class User {
 			@NotNull(message = "Field cannot be blank") String state,
 			@Size(min = 5, message = "Password must be 5 character or longer") String password,
 			String passwordConfirmation) {
+		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
@@ -84,11 +102,16 @@ public class User {
 		this.passwordConfirmation = passwordConfirmation;
 	}
 
-	
 
 
 
-	
+
+
+
+
+
+
+
 
 
 
@@ -270,6 +293,25 @@ public class User {
 
 	public void setUser_event(List<Event> user_event) {
 		this.user_event = user_event;
+	}
+
+	
+
+
+	
+
+
+
+
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+
+
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
 	}
 
 
